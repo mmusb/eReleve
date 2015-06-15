@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:t="http://myfaces.apache.org/tomahawk" > 
+       
+
+
+<h:head><title>Enregistrement d'un nouvel étudiant</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css"/>
+   
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/dashboard.css"/>
+
+	<!-- Perso CSS -->
+    <h:outputStylesheet library="css" name="persoStyle.css"  />
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+   
+   
+</h:head>
+ 
+<h:body> 
+
+<f:view>
+<h:form>
+
+         <ui:include src="NavTop.xhtml" />
+        
+        
+ <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="AccueilEmploye.xhtml">Résumé </a></li>
+			<li><h:commandLink action="#{employeBean.ListProfs}" value="Enseignants" immediate="true"/></li>
+			<li><h:commandLink action="#{employeBean.ListEmployes}" value="Employes" immediate="true"/></li>
+   			<li><h:commandLink action="#{employeBean.ListClasses}" value="Classes" immediate="true"/></li>
+
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+   			<li class="active"><h:commandLink action="#{employeBean.ListEleves}" value="Etudiants" immediate="true"/></li>
+            <li><a href="#">Parents</a></li>
+          </ul>
+         
+    </div>       
+       
+<div id="main-cont" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+   <ul id="previous-btn" class="pager">
+   <li class="previous"><a href="javascript:history.back()"><span aria-hidden="true">&larr;</span> Retour</a></li>
+   <li> <h1 class="page-header">Nouvel étudiant</h1></li>
+	   
+   </ul>
+
+	
+	<h:outputText value="Ecole: #{employeBean.thisEcole.nom}"></h:outputText>
+	
+	<table class= "form-table">
+				<tr>	
+					<td><label for="etudiantNom">Nom:</label></td>
+					<td><h:inputText id="etudiantNom" value="#{addEleve.nom}" class="form-control" required="true" size="30" label="Nom"/></td>
+					<td><h:messages for="etudiantNom" style="color: #FF0000" /></td>
+				</tr>
+				
+				<tr>	
+					<td><label for="etudiantPrenom">Prénom:</label></td>
+					<td><h:inputText id="etudiantPrenom" value="#{addEleve.prenom}" class="form-control" required="true" size="30" label="Prénom"/></td>
+					<td><h:messages for="etudiantPrenom" style="color: #FF0000" /></td>
+				</tr>
+						
+				<tr>
+					<td><label for="etudiantDN">Date de naissance:</label></td>
+					<td>
+					<h:inputText id="etudiantDN" value="#{addEleve.dateNaissance}" class="form-control" required="true" size="30" label="Date de naissance" p:placeholder="JJ-MM-AAAA">
+						 <f:convertDateTime pattern="dd-MM-yyyy"/> 
+					</h:inputText>
+					<td><h:messages for="etudiantDN" style="color: #FF0000" /></td>
+					</td>
+				</tr>
+				 
+				<tr>
+					<td><label for="eleveClasse" >Classe:</label></td>
+					<td><h:selectOneMenu id="eleveClasse" class="form-control" value="#{addEleve.classe}" aria-describedby="basic-addon1" required="true" label="Classe"
+					converter="#{classeConverter}">
+						<f:selectItem itemValue="#{null}" itemLabel="-- Choisir une classe --" noSelectionOption="true" itemDisabled="true"></f:selectItem>
+				        <f:selectItems value="#{addEleve.classes}" var="cl" itemLabel="#{cl.nom}" itemValue="#{cl}"/>
+   						</h:selectOneMenu>
+					</td>
+					<td><h:messages for="eleveClasse" style="color: #FF0000" /></td>
+				</tr>
+                       
+	</table>			
+	<br />
+
+
+	<h:commandButton class="btn btn-primary" value="Enregister" action="#{addEleve.addEtudiant}"/>
+	<br />
+	
+	<h:panelGroup layout="block" class="alert alert-danger" role="alert" rendered="#{addEleve.error}">
+	<h:outputText value="#{addEleve.errormessage}"/>
+	</h:panelGroup>
+		
+	<h:panelGroup layout="block" class="alert alert-success" role="alert" rendered="#{addEleve.success}">
+	<h:outputText value="#{addEleve.successmessage}"/>
+	</h:panelGroup>
+	
+</div>
+</div>
+</div>
+
+</h:form>
+</f:view>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+</h:body> 
+</html>

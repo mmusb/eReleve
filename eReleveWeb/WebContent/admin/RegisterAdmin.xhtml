@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+
+<h:head><title>Enregistrement d'un nouvel administrateur</title>
+
+<c:if test="#{registerAdminForm.ass.af.state != 'LOGGED_IN'}">
+<script language="javascript"> 
+location.replace("Administrator.xhtml");
+</script>
+</c:if>
+
+</h:head>
+ 
+<body> 
+<f:view>
+<h:form rendered="#{registerAdminForm.ass.af.state == 'LOGGED_IN'}">
+<h1>Enregistrement d'un nouvel administrateur</h1>
+	
+	<table>
+	        <tr>
+				<td>Nom:</td>
+				<td><h:inputText value="#{registerAdminForm.nomA}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Prenom:</td>
+				<td><h:inputText value="#{registerAdminForm.prenomA}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><h:inputText value="#{registerAdminForm.usernameA}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Mot de passe:</td>
+				<td><h:inputSecret value="#{registerAdminForm.password1A}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Confirmez le mot de passe:</td>
+				<td><h:inputSecret value="#{registerAdminForm.password2A}" required="true"/></td>
+			</tr>
+		</table>
+
+
+	<h:outputText value="#{registerAdminForm.errormessage}" rendered="#{registerAdminForm.error}"/><br/><br/>
+	<h:commandButton value="Enregister" action="#{registerAdminForm.register}"/>
+		
+</h:form>
+</f:view>
+</body> 
+</html>

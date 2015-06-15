@@ -1,0 +1,13 @@
+1415653499183	Delete element
+1415915424652	Encapsulate field 'prenom'
+1415915431848	Encapsulate field 'nom'
+1416152315947	Move 1 resources to 'WebContent'
+1416152541116	Copy file
+1416152623026	Copy file
+1416152631821	Rename resource 'Register_admin.xhtml'
+1416152701527	Copy compilation unit
+1416153758497	Rename type 'AdminRegisterForm'
+1416154001543	Rename resource 'Register_Admin.xhtml'
+1416154268192	Rename resource 'admin_accueil.xhtml'
+1416159184513	Encapsulate field 'logged'
+1416163544436	Copy compilation unit

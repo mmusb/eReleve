@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+       
+
+
+<h:head><title>Enregistrement d'un nouvel enseignant</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css"/>
+   
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/dashboard.css"/>
+
+	<!-- Perso CSS -->
+    <h:outputStylesheet library="css" name="persoStyle.css"  />
+
+    
+</h:head>
+ 
+<h:body> 
+
+<f:view>
+<h:form>
+
+  <ui:include src="NavTop.xhtml" />        
+        
+ <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="AccueilEmploye.xhtml">Résumé </a></li>
+			<li class="active"><h:commandLink action="#{employeBean.ListProfs}" value="Enseignants" immediate="true"/></li>
+			<li><h:commandLink action="#{employeBean.ListEmployes}" value="Employes" immediate="true"/></li>
+   			<li><h:commandLink action="#{employeBean.ListClasses}" value="Classes" immediate="true"/></li>
+
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+   			<li><h:commandLink action="#{employeBean.ListEleves}" value="Etudiants" immediate="true"/></li>
+            <li><a href="#">Parents</a></li>
+          </ul>
+         
+    </div>       
+    
+    
+<div id="main-cont" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+   <ul id="previous-btn" class="pager">
+   <li class="previous"><a href="javascript:history.back()"><span aria-hidden="true">&larr;</span> Retour</a></li>
+   <li> <h1 class="page-header">Nouvel enseignant</h1></li>
+	   
+   </ul>
+
+	
+	<h:outputText value="Ecole: #{employeBean.thisEcole.nom}"></h:outputText>
+	<table class= "form-table">
+				<tr>	
+					<td><label for="profNom">Nom:</label></td>
+					<td><h:inputText id="profNom" value="#{addProf.nom}" class="form-control" required="true" size="30"	label="Nom"/></td>
+					<td><h:messages for="profNom" style="color: #FF0000"/></td>
+					
+				</tr>
+				
+				<tr>	
+					<td><label for="profPrenom">Prénom:</label></td>
+					<td><h:inputText id="profPrenom" value="#{addProf.prenom}" class="form-control" required="true" size="30" label="Prénom"/></td>
+					<td><h:messages for="profPrenom" style="color: #FF0000"/></td>
+				</tr>
+				
+				<tr>
+					<td><label for="profModule" >Module:</label></td>
+					<td><h:selectOneMenu id="profModule" class="form-control" value="#{addProf.module}" aria-describedby="basic-addon1" required="true" label="Module"
+					converter="#{moduleConverter}">
+				        <f:selectItem itemValue="#{null}" itemLabel="-- Choisir un module --" noSelectionOption="true" itemDisabled="true"></f:selectItem>
+    					<f:selectItems value="#{addProf.listModules}" var="md" itemLabel="#{md.nom}" itemValue="#{md}"/>
+    					</h:selectOneMenu>
+    				</td>
+    				<td><h:messages for="profModule" style="color: #FF0000"/></td>
+				</tr>
+									
+				<tr>
+					<td><label for="profMail">E-mail:</label></td>
+					<td><h:inputText id="profMail" value="#{addProf.email}" class="form-control" required="true" size="30" p:placeholder="example@abc.dz" label="E-mail"/></td>
+					<td><h:messages for="profMail"  style="color: #FF0000"/></td>
+			 	</tr>
+			 	
+			 	<tr>
+					<td><label for="profPass">Mot de passe:</label></td>
+					<td><h:inputSecret id="profPass" value="#{addProf.password1}" class="form-control" required="true" size="30" label="Mot de passe"/></td>
+					<td><h:messages for="profPass" style="color: #FF0000" /></td>
+				</tr>
+				
+				
+				<tr>
+					<td><label for="profPass2">Retaper le mot de passe:</label></td>
+					<td><h:inputSecret id="profPass2" value="#{addProf.password2}" class="form-control" required="true" size="30" label="Confirmation"/></td>
+					<td><h:messages for="profPass2" style="color: #FF0000"/></td>
+				</tr>	
+	</table>			
+	<br />
+
+
+	<h:commandButton class="btn btn-primary" value="Enregister" action="#{addProf.addProf}"/>
+	<br />
+	
+	<br />
+	
+	<h:panelGroup layout="block" class="alert alert-danger" role="alert" rendered="#{addProf.error}">
+	<h:outputText value="#{addProf.errormessage}"/>
+	</h:panelGroup>
+		
+	<h:panelGroup layout="block" class="alert alert-success" role="alert" rendered="#{addProf.success}">
+	<h:outputText value="#{addProf.successmessage}"/>
+	</h:panelGroup>
+	
+</div>
+</div>
+</div>
+
+</h:form>
+</f:view>
+
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+</h:body> 
+</html>

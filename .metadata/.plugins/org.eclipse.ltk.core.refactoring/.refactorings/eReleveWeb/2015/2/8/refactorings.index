@@ -1,0 +1,27 @@
+1424186149736	Copy file
+1424189750208	Rename resource 'Login.xhtml'
+1424189769289	Copy file
+1424189783254	Copy file
+1424274412478	Copy compilation unit
+1424274429233	Copy compilation unit
+1424300680730	Copy compilation unit
+1424300687767	Copy compilation unit
+1424300934111	Copy compilation unit
+1424301023964	Rename type 'Perso'
+1424301086023	Copy file
+1424301099758	Copy file
+1424301107459	Rename resource 'AccueilProf'
+1424301125279	Rename resource 'Perso.xhtml'
+1424461309769	Move 'AccueilEmploye.xhtml' to 'employe'
+1424461324860	Move 'AccueilProf.xhtml' to 'prof'
+1424461336783	Move 'LoginUser.xhtml' to 'user'
+1424461343921	Move 1 resources to 'user'
+1424461373757	Move 'AddEcole.xhtml' to 'admin'
+1424465722999	Encapsulate field 'admins'
+1424558996402	Copy file
+1424559012954	Rename resource 'ListEcoles.xhtml'
+1424559045646	Copy file
+1424560082650	Rename type 'EcoleBean'
+1424560101431	Rename type 'EmployeBean'
+1424560140608	Rename type 'A_EmployeBean'
+1424561001456	Copy file

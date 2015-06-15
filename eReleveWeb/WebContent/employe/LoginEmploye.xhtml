@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+ 
+
+<h:head><title>Page de connexion</title>
+
+	<!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="bootstrap.css"  />
+
+    <!-- Custom styles for this template -->
+	<h:outputStylesheet library="css" name="signin.css"  />
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+</h:head> 
+<body> 
+<f:view>
+<h1 style="text-align: center">Accès administratif</h1>
+
+<div style="text-align: center; margin-top: 1cm;">
+	<h:outputText class="alert alert-danger error-msg" role="alert" value="Votre pseudo ou votre mot de passe est incorrect" rendered="#{employeLoginForm.error}"/>
+	<br/>
+</div>
+
+<div class="container">
+
+<h:form class="form-signin">
+	
+	<h2 class="form-signin-heading"> Veuillez vous identifier </h2>
+	
+			<h:inputText value="#{employeLoginForm.username}" class="form-control" required="true" p:placeholder="Login" p:autofocus="true"/>
+
+			<h:inputSecret value="#{employeLoginForm.password}" class="form-control" required="true" p:placeholder="Mot de passe"/>
+			
+			
+	<h:commandButton class="btn btn-lg btn-primary btn-block" value="Login" action="#{employeLoginForm.verifier}"/>
+	<br/>
+	<!--  <h:commandLink action="Register" value="Ou enregistrez-vous" />  -->
+</h:form>
+
+</div> <!-- /container -->
+</f:view>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+</body> 
+</html>

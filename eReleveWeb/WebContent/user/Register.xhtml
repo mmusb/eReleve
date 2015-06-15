@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head><title>Enregistrement d'un nouvel utilisateur</title></h:head> 
+<body> 
+<f:view>
+<h:form>
+<h1>Enregistrement d'un nouvel utilisateur</h1>
+	<table>
+	        <tr>
+				<td>Nom:</td>
+				<td><h:inputText value="#{registerForm.nom}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Prenom:</td>
+				<td><h:inputText value="#{registerForm.prenom}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><h:inputText value="#{registerForm.username}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Mot de passe:</td>
+				<td><h:inputSecret value="#{registerForm.password1}" required="true"/></td>
+			</tr>
+			<tr>
+				<td>Confirmez le mot de passe:</td>
+				<td><h:inputSecret value="#{registerForm.password2}" required="true"/></td>
+			</tr>
+		</table>
+
+	<h:outputText value="#{registerForm.errormessage}" rendered="#{registerForm.error}"/><br/><br/>
+	<h:commandButton value="Enregister" action="#{registerForm.register}"/>
+</h:form>
+</f:view>
+</body> 
+</html>

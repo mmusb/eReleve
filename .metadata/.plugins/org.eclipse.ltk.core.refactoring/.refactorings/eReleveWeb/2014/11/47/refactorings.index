@@ -1,0 +1,15 @@
+1416335260101	Encapsulate field 'ecole_nom'
+1416335264055	Encapsulate field 'ecole_type'
+1416335268296	Encapsulate field 'employe_nom'
+1416335271787	Encapsulate field 'employe_prenom'
+1416335276621	Encapsulate field 'employe_fonction'
+1416588508133	Copy file
+1416588912846	Encapsulate field 'error'
+1416588916367	Encapsulate field 'message'
+1416590129369	Copy file
+1416590288338	Encapsulate field 'ecoles'
+1416590382314	Rename resource 'ListEcole.xhtml'
+1416603891730	Copy compilation unit
+1416604674504	Copy file
+1416606159273	Rename resource 'detailsEcole.xhtml'
+1416606181128	Encapsulate field 'this_ecole'

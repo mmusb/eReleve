@@ -1,0 +1,38 @@
+1424699993842	Encapsulate field 'employes'
+1424700491438	Encapsulate field 'thisEcole'
+1424707158736	Encapsulate field 'profs'
+1424707162021	Encapsulate field 'classes'
+1424707166087	Encapsulate field 'etudiants'
+1424707392636	Encapsulate field 'eleves'
+1424707903046	Copy file
+1424708480887	Copy file
+1424708495856	Copy file
+1424708513798	Copy file
+1424708525803	Copy file
+1424708874192	Copy compilation unit
+1424708896770	Copy compilation unit
+1424708906453	Rename type 'addClasse'
+1424708923205	Copy compilation unit
+1424708941723	Copy compilation unit
+1424709021584	Encapsulate field 'branche'
+1424709034647	Encapsulate field 'error'
+1424709037744	Encapsulate field 'errormessage'
+1424709296003	Encapsulate field 'success'
+1424709300272	Encapsulate field 'successmessage'
+1424709737787	Encapsulate field 'ecole'
+1424710956521	Encapsulate field 'success'
+1424710959724	Encapsulate field 'successmessage'
+1424735093501	Rename type 'AddClasse'
+1424735114540	Rename type 'AddEleve'
+1424735125685	Rename type 'AddEmploye'
+1424735136192	Rename type 'AddProf'
+1424799940467	Encapsulate field 'dateNaissance'
+1424799971863	Encapsulate field 'success'
+1424799975465	Encapsulate field 'successmessage'
+1424919047877	Encapsulate field 'modules'
+1424920276970	Encapsulate field 'classes'
+1424965086269	Encapsulate field 'modules'
+1424965242954	Copy file
+1424965458102	Copy file
+1424965656814	Encapsulate field 'module_nom'
+1424965661549	Encapsulate field 'module_niveau'

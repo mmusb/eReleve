@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+ 
+
+<h:head><title>Bienvenus dans votre application</title>
+
+	<!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="bootstrap.css"  />
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/persoStyle.css"/>
+	
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+</h:head>
+ 
+<body> 
+<f:view>
+<h1 class="index_header">Bienvenus sur l'application eReleve</h1>
+
+<div style="text-align: center; margin-top: 1cm;">
+	<h:outputText class="alert alert-danger error-msg" role="alert" value="Votre pseudo ou votre mot de passe est incorrect" rendered="#{loginForm.error}"/>
+	<br/>
+</div>
+
+
+<h2 class="ptitle">Vous êtes:</h2>
+
+ <ul class="ca-menu">
+               <li>
+                   <a href="user/LoginUser.xhtml">
+                      <span class="ca-icon">&#85;</span>
+                      <div class="ca-content">
+                      <h2 class="ca-main">Parent</h2>
+                      <h3 class="ca-sub">Consulter des notes</h3>
+                      </div>
+                    </a>
+               </li>
+
+               <li>
+                   <a href="prof/LoginProf.xhtml">
+                      <span class="ca-icon">&#120;</span>
+                      <div class="ca-content">
+                      <h2 class="ca-main">Enseignant(e)</h2>
+                      <h3 class="ca-sub">Accès restreint</h3>
+                      </div>
+                   </a>
+               </li>
+		    
+		       <li>
+                   <a href="employe/LoginEmploye.xhtml">
+                      <span class="ca-icon">&#120;</span>
+                      <div class="ca-content">
+                      <h2 class="ca-main">Employé(e)</h2>
+                      <h3 class="ca-sub">Accès restreint</h3>
+                      </div>
+                   </a>
+               </li>
+          
+</ul>
+
+</f:view>
+</body> 
+</html>

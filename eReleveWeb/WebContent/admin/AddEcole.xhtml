@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+
+<h:head><title>Enregistrement d'une nouvelle école</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css"/>
+   
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/dashboard.css"/>
+	
+	<!-- Perso CSS -->
+    <h:outputStylesheet library="css" name="persoStyle.css"  />
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+   
+   
+<c:if test="#{registerAdminForm.ass.af.state != 'LOGGED_IN'}">
+<script language="javascript"> 
+location.replace("Administrator.xhtml");
+</script>
+</c:if>
+</h:head>
+ 
+ 
+<h:body> 
+
+<f:view>
+<h:form rendered="#{registerAdminForm.ass.af.state == 'LOGGED_IN'}">
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">eReleve</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Paramètres</a></li>
+            <li><h:commandLink action="#{admin.logout}" immediate="true">
+				<h:outputText value="Se déconnecter"/>
+				</h:commandLink></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+        
+        
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><h:commandLink action="Admin_accueil" value="Résumé" /></li>
+            <li class="active"><h:commandLink action="#{admin.ListEcoles}" value="Ecoles" immediate="true"/></li>
+            <li><a href="#">Enseignants</a></li>
+            <li><a href="#">Employes</a></li>
+            <li><h:commandLink action="#{admin.getListModules}" value="Modules" immediate="true"/></li>
+          </ul>
+         
+         <ul class="nav nav-sidebar">
+            <li><h:commandLink value="Administrators" action="#{admin.getListAdmins}" immediate="true"/></li>
+         </ul>
+         
+    </div>        
+       
+   <div id="main-cont" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+   <h1 class="page-header">Nouvelle école</h1>
+   
+   
+	
+		<div class="input-group">
+				<label for="ecoleNom" >Nom de l'école:</label>
+				<h:inputText id="ecoleNom" value="#{admin.ecole_nom}" class="form-control" required="true" aria-describedby="basic-addon1" label="Nom"/>
+				<h:messages for="ecoleNom" style="color: #FF0000" />
+				
+		</div>
+<br />
+
+		<div class="input-group">
+				<label for="ecoleType" >Type de l'établissement:</label>
+				<h:selectOneMenu id="ecoleType" class="form-control" value="#{admin.ecole_type}" aria-describedby="basic-addon1" label="Type" required="true">
+				        <f:selectItem itemValue="#{null}" itemLabel="-- Choisir un type --" noSelectionOption="true" itemDisabled="true"></f:selectItem>
+						<f:selectItem itemValue="Primaire" itemLabel="Primaire" />
+   						<f:selectItem itemValue="Moyen" itemLabel="Moyen" />
+   						<f:selectItem itemValue="Secondaire" itemLabel="Secondaire" />
+				</h:selectOneMenu>
+				<h:messages for="ecoleType" style="color: #FF0000" />
+	 	</div>
+
+	<br/><br/>
+
+	<h:commandButton class="btn btn-primary" value="Enregister" action="#{admin.addEcole}"/>
+	<br/><br/>
+	
+	<h:panelGroup layout="block" class="alert alert-danger" role="alert" rendered="#{admin.error}">
+	<h:outputText  value="#{admin.message}"/><br/><br/>
+	</h:panelGroup>
+	
+	</div>
+    </div>
+    </div>
+
+			
+</h:form>
+</f:view>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</h:body> 
+</html>

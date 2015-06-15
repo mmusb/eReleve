@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+
+<h:head><title>Liste des employés</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css"/>
+   
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/dashboard.css"/>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+   
+   
+</h:head>
+ 
+<body> 
+<f:view>
+<h:form>
+
+	        <ui:include src="NavTop.xhtml" />
+
+    
+        
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="AccueilEmploye.xhtml">Résumé </a></li>
+			<li><h:commandLink action="#{employeBean.ListProfs}" value="Enseignants" immediate="true"/></li>
+			<li class="active"><h:commandLink action="#{employeBean.ListEmployes}" value="Employes" immediate="true"/></li>
+   			<li><h:commandLink action="#{employeBean.ListClasses}" value="Classes" immediate="true"/></li>
+
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+   			<li><h:commandLink action="#{employeBean.ListEleves}" value="Etudiants" immediate="true"/></li>
+            <li><a href="#">Parents</a></li>
+          </ul>
+         
+    </div>        
+        
+   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+   <h1 class="page-header">Liste des employés</h1>
+          
+        
+    <a href="AddEmploye.xhtml" class="btn btn-default">
+	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>    Ajouter un employé
+    </a>		
+    <hr />
+    
+    <div class="table-responsive">
+		
+	<h:dataTable class="table table-striped" id="liste_employes" value="#{employeBean.employes}" var="empl">
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nom" />
+					</f:facet>
+					
+    				<h:commandLink value="#{empl.nom}" action="DetailsEmploye" />
+    					
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prénom" />
+					</f:facet>
+					<h:outputText value="#{empl.prenom}" />
+					
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fonction" />
+					</f:facet>
+					<h:outputText value="#{empl.fonction}" />
+					
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="E-mail" />
+					</f:facet>
+					<h:outputText value="#{empl.user.email}" />
+					
+				</h:column>
+								
+	</h:dataTable>
+	
+   </div>
+   </div>
+   </div>
+   </div>
+   
+</h:form>
+</f:view>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body> 
+</html>
